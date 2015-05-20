@@ -1,8 +1,14 @@
 package inttoeng;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class IntToEng {
+    //0-19
+    static String[] eNum1 ={"zero", "one", "two", "three", "four",
+   			"five", "six", "seven", "eight", "nine",
+   			"ten", "eleven", "twelve", "thirteen", "fourteen",
+   			"fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
 
     // メインメソッド
     public static void main(String[] args) {
@@ -10,18 +16,14 @@ public class IntToEng {
         Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
 
-        System.out.println(translateEng(input));
+        System.out.println(number(input));
 
     }
 
     // 数値を英訳する変換するメソッド
     static String translateEng(int n) {
+
     	
-    	//0-19
-    	String[] eNum1 ={"zero", "one", "two", "three", "four",
-    			"five", "six", "seven", "eight", "nine",
-    			"ten", "eleven", "twelve", "thirteen", "fourteen",
-    			"fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
     	//20-90の10の位
     	String[] eNum2={"","twenty", "thirty", "forty", "fifty", "sixty",
     			"seventy", "eighty", "ninety"};
@@ -50,7 +52,7 @@ public class IntToEng {
     			
     	String num = String.valueOf(n);
     	if(n < 20){ 
-    		num=eNum1[n];
+    		//num=eNum1[n];
     		return num;
     	}
     	if(n>=20 && n<=99) {
@@ -83,7 +85,7 @@ public class IntToEng {
     		
     		
     		int num100b = Integer.parseInt(num100);
-    		int num10c = Integer.parseInt(num10b);
+    		int num10c = Integer.parseInt(num10b); 
     		int num1c = Integer.parseInt(num1b);
     		
     		num=eNum4[num100b-1]+eNum5[num10c-1]+eNum7[num1c];
@@ -103,5 +105,22 @@ public class IntToEng {
     			return num;
     	}
         return "";
+    }
+    static String number(int n){
+    	String ans = "";
+    	String num = String.valueOf(n);
+    	ArrayList<String> list = new ArrayList<String>();
+    	for(int i=0;i<Integer.toString(n).length();i++){
+    		if(n<19){
+    			ans=eNum1[n-1];
+    			break;
+    		}
+    		String a = num.substring(i,i+1);
+    		int b = Integer.parseInt(a);
+    		num = eNum1[b-1];
+    		list.add(num);
+    		ans += num;
+    	}
+    	return ans;
     }
 }
