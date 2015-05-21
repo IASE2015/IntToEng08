@@ -16,7 +16,7 @@ public class IntToEng {
         Scanner sc = new Scanner(System.in);
         int input = sc.nextInt();
 
-        System.out.println(number(input));
+        System.out.println(translateEng(input));
 
     }
 
@@ -53,6 +53,7 @@ public class IntToEng {
     	String num = String.valueOf(n);
     	if(n < 20){ 
     		//num=eNum1[n];
+    		num = eNum1[n];
     		return num;
     	}
     	if(n>=20 && n<=99) {
@@ -104,6 +105,30 @@ public class IntToEng {
     		num=eNum4[num100b-1]+eNum5[num10c-1]+eNum6[num1c];
     			return num;
     	}
+        if(n>=1000){
+            String ans = "";
+            for(int i=0;i<num.length()-2;i++){
+                String a = num.substring(i,i+1);
+                int b = Integer.parseInt(a);
+                String an = eNum1[b];
+                if(b!=0)
+                ans+=an;
+                if((num.length()-i)==3)
+                    ans+="thousand";
+                if((num.length()-i)==2 && num.substring(num.length()-i)=="0")
+                    if(b!=0)
+                    ans+="hundred";
+                if(num.length()>=4){
+                    String c = num.substring(2);
+                }
+            }
+                String s = num.substring(num.length()-2,num.length());
+                int k = Integer.parseInt(s);
+                ans += translateEng(k);
+                
+            
+            return ans;
+        }
         return "";
     }
     static String number(int n){
@@ -111,8 +136,8 @@ public class IntToEng {
     	String num = String.valueOf(n);
     	ArrayList<String> list = new ArrayList<String>();
     	for(int i=0;i<Integer.toString(n).length();i++){
-    		if(n<19){
-    			ans=eNum1[n-1];
+    		if(n<=19){
+    			ans=eNum1[n];
     			break;
     		}
     		String a = num.substring(i,i+1);

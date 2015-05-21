@@ -21,7 +21,7 @@ public class IntToEngTest {
 				
 				
 				String actual0=ite.number(0);
-				/*String actual1=ite.translateEng(1);
+				String actual1=ite.translateEng(1);
 				String actual2=ite.translateEng(2);
 				String actual3=ite.translateEng(3);
 				String actual4=ite.translateEng(4);
@@ -29,11 +29,11 @@ public class IntToEngTest {
 				String actual6=ite.translateEng(6);
 				String actual7=ite.translateEng(7);
 				String actual8=ite.translateEng(8);
-				String actual9=ite.translateEng(9);*/
+				String actual9=ite.translateEng(9);
 				
 				
 				assertEquals(actual0,expected0);
-				/*assertEquals(actual1,expected1);
+				assertEquals(actual1,expected1);
 				assertEquals(actual2,expected2);
 				assertEquals(actual3,expected3);
 				assertEquals(actual4,expected4);
@@ -41,7 +41,7 @@ public class IntToEngTest {
 				assertEquals(actual6,expected6);
 				assertEquals(actual7,expected7);
 				assertEquals(actual8,expected8);
-				assertEquals(actual9,expected9);*/
+				assertEquals(actual9,expected9);
 				
 		}
 		@Test
@@ -113,5 +113,18 @@ public class IntToEngTest {
 			assertEquals(actual90,expected90);
 			assertEquals(actual98,expected98);
 			assertEquals(actual99,expected99);
+		}
+		@Test
+		public void あ(){
+			IntToEng ite= new IntToEng();
+			String expected20="onethousandtwenty";
+
+		
+					
+			String actual20=ite.translateEng(1020);
+
+			
+			assertEquals(actual20,expected20);
+
 		}
 	}
